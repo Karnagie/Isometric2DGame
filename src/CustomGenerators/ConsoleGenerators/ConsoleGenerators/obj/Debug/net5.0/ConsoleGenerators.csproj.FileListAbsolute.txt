@@ -1,0 +1,15 @@
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\bin\Debug\net5.0\ConsoleGenerators.deps.json
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\bin\Debug\net5.0\ConsoleGenerators.dll
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\bin\Debug\net5.0\ref\ConsoleGenerators.dll
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\bin\Debug\net5.0\ConsoleGenerators.pdb
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\bin\Debug\net5.0\DesperateDevs.Extensions.dll
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\bin\Debug\net5.0\Jenny.dll
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\obj\Debug\net5.0\ConsoleGenerators.csproj.AssemblyReference.cache
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\obj\Debug\net5.0\ConsoleGenerators.GeneratedMSBuildEditorConfig.editorconfig
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\obj\Debug\net5.0\ConsoleGenerators.AssemblyInfoInputs.cache
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\obj\Debug\net5.0\ConsoleGenerators.AssemblyInfo.cs
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\obj\Debug\net5.0\ConsoleGenerators.csproj.CoreCompileInputs.cache
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\obj\Debug\net5.0\ConsoleGenerators.csproj.CopyComplete
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\obj\Debug\net5.0\ConsoleGenerators.dll
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\obj\Debug\net5.0\ref\ConsoleGenerators.dll
+E:\Projects\AD\src\CustomGenerators\ConsoleGenerators\ConsoleGenerators\obj\Debug\net5.0\ConsoleGenerators.pdb

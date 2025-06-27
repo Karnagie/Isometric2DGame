@@ -119,6 +119,7 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IRandomService>().To<UnityRandomService>().AsSingle();
       Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle();
       Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
+      Container.Bind<IPhysicsResolver>().To<UnityPhysicsResolver>().AsSingle();
       Container.Bind<ITimeService>().To<UnityTimeService>().AsSingle();
       Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle();
     }

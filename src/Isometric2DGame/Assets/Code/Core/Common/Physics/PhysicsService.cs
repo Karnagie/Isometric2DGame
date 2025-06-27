@@ -12,9 +12,11 @@ namespace Code.Core.Common.Physics
     
     private readonly ICollisionRegistry _collisionRegistry;
     private readonly Collider[] _results = new Collider[100];
+    private IPhysicsResolver _resolver;
 
-    public PhysicsService(ICollisionRegistry collisionRegistry)
+    public PhysicsService(ICollisionRegistry collisionRegistry, IPhysicsResolver resolver)
     {
+      _resolver = resolver;
       _collisionRegistry = collisionRegistry;
     }
 
@@ -23,7 +25,7 @@ namespace Code.Core.Common.Physics
       var contactFilter2D = new ContactFilter2D();
       contactFilter2D.SetLayerMask(layerMask);
       
-      int hitCount = Physics2D.Raycast(worldPosition, direction, contactFilter2D, Hits);
+      int hitCount = _resolver.Raycast2D(worldPosition, direction, contactFilter2D, Hits);
 
       for (int i = 0; i < hitCount; i++)
       {
@@ -44,7 +46,7 @@ namespace Code.Core.Common.Physics
       var contactFilter2D = new ContactFilter2D();
       contactFilter2D.SetLayerMask(layerMask);
       
-      int hitCount = Physics2D.Raycast(worldPosition, direction, contactFilter2D, Hits);
+      int hitCount = _resolver.Raycast2D(worldPosition, direction, contactFilter2D, Hits);
 
       for (int i = 0; i < hitCount; i++)
       {
@@ -67,7 +69,7 @@ namespace Code.Core.Common.Physics
       var contactFilter2D = new ContactFilter2D();
       contactFilter2D.SetLayerMask(layerMask);
       
-      int hitCount = Physics2D.Raycast(
+      int hitCount = _resolver.Raycast2D(
         start, end - start, contactFilter2D, Hits, Vector2.Distance(start, end));
 
       for (int i = 0; i < hitCount; i++)
@@ -126,7 +128,7 @@ namespace Code.Core.Common.Physics
       var contactFilter2D = new ContactFilter2D();
       contactFilter2D.SetLayerMask(layerMask);
       
-      int hitCount = Physics2D.OverlapPoint(worldPosition, contactFilter2D, OverlapHits);
+      int hitCount = _resolver.OverlapPoint(worldPosition, contactFilter2D, OverlapHits);
 
       for (int i = 0; i < hitCount; i++)
       {
@@ -149,7 +151,7 @@ namespace Code.Core.Common.Physics
       var contactFilter2D = new ContactFilter2D();
       contactFilter2D.SetLayerMask(layerMask);
       
-      return Physics2D.OverlapCircle(worldPos, radius, contactFilter2D, hits);
+      return _resolver.OverlapCircle(worldPos, radius, contactFilter2D, hits);
     }
 
     public Vector3 CalculatePosition
@@ -196,7 +198,7 @@ namespace Code.Core.Common.Physics
       if (colliderA == null)
         return Array.Empty<Collider>();
       
-      var size = UnityEngine.Physics.OverlapSphereNonAlloc(position, radius, _results);
+      var size = _resolver.OverlapSphereNonAlloc(position, radius, _results);
 
       var colliders = new Collider[size];
       var count = 0;
@@ -232,7 +234,7 @@ namespace Code.Core.Common.Physics
       if (colliderA == null)
         return Array.Empty<GameEntity>();
 
-      var size = UnityEngine.Physics.OverlapSphereNonAlloc(position, radius, _results);
+      var size = _resolver.OverlapSphereNonAlloc(position, radius, _results);
 
       var entities = new List<GameEntity>();
       for (var index = 0; index < size; index++)
@@ -258,7 +260,7 @@ namespace Code.Core.Common.Physics
       if (colliderA == null)
         return (false, Vector3.zero, 0);
       
-      var isPenetrating = UnityEngine.Physics.ComputePenetration(
+      var isPenetrating = _resolver.ComputePenetration(
         colliderA, colliderA.transform.position, colliderA.transform.rotation,
         colliderB, colliderB.transform.position, colliderB.transform.rotation,
         out var direction, out var distance
@@ -276,7 +278,7 @@ namespace Code.Core.Common.Physics
       if (colliderA == null)
         return (false, Vector3.zero, 0);
       
-      var isPenetrating = UnityEngine.Physics.ComputePenetration(
+      var isPenetrating = _resolver.ComputePenetration(
         colliderA, colliderA.transform.position, colliderA.transform.rotation,
         colliderB, colliderB.transform.position, colliderB.transform.rotation,
         out var direction, out var distance
@@ -285,12 +287,12 @@ namespace Code.Core.Common.Physics
       return (isPenetrating, direction, distance);
     }
 
-    public static Vector3 WorldPositionA(
+    public Vector3 WorldPositionA(
       Vector3 worldPositionA, Quaternion rotationA, Collider colliderA,
       Vector3 worldPositionB, Quaternion rotationB, Collider colliderB
       )
     {
-      var isPenetrating = UnityEngine.Physics.ComputePenetration(
+      var isPenetrating = _resolver.ComputePenetration(
         colliderA, worldPositionA, rotationA,
         colliderB, worldPositionB, rotationB,
         out var direction, out var distance

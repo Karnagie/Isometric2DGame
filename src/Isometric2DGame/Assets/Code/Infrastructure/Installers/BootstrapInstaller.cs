@@ -1,3 +1,4 @@
+using Code.Common.EntityIndices;
 using Code.Common.StaticData;
 using Code.Common.Windows;
 using Code.Core.Cameras.CameraManagement;
@@ -43,6 +44,12 @@ namespace Code.Infrastructure.Installers
       BindStateFactory();
       BindGameStates();
       BindProgressServices();
+      BindGameEntityIndices();
+    }
+
+    private void BindGameEntityIndices()
+    {
+      Container.BindInterfacesAndSelfTo<GameEntityIndices>().AsSingle();
     }
 
     private void BindBootstrap()

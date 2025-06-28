@@ -11,44 +11,49 @@ public static class GameComponentsLookup {
     public const int Destructed = 0;
     public const int Radius = 1;
     public const int SelfDestructTimer = 2;
-    public const int View = 3;
-    public const int ViewParent = 4;
-    public const int ViewPath = 5;
-    public const int ViewPrefab = 6;
-    public const int Close = 7;
-    public const int Open = 8;
-    public const int WindowId = 9;
-    public const int WindowRequest = 10;
-    public const int Camera = 11;
-    public const int SwitchCameraRequest = 12;
-    public const int Active = 13;
-    public const int EntityLink = 14;
-    public const int Id = 15;
-    public const int Layer = 16;
-    public const int LocalPosition = 17;
-    public const int Weight = 18;
-    public const int SpriteRenderer = 19;
-    public const int Transform = 20;
-    public const int UsePrefabLocalPosition = 21;
-    public const int WorldPosition = 22;
-    public const int Direction = 23;
-    public const int MovementAvailable = 24;
-    public const int MovementPoint = 25;
-    public const int Moving = 26;
-    public const int Offset = 27;
-    public const int RotationAlignedAlongDirection = 28;
-    public const int Speed = 29;
-    public const int SyncWorldPositionWithTransform = 30;
-    public const int TargetId = 31;
-    public const int TurnedAlongDirection = 32;
-    public const int Ui = 33;
+    public const int Value = 3;
+    public const int View = 4;
+    public const int ViewParent = 5;
+    public const int ViewPath = 6;
+    public const int ViewPrefab = 7;
+    public const int Close = 8;
+    public const int Open = 9;
+    public const int WindowId = 10;
+    public const int WindowRequest = 11;
+    public const int Camera = 12;
+    public const int SwitchCameraRequest = 13;
+    public const int Active = 14;
+    public const int EntityLink = 15;
+    public const int Id = 16;
+    public const int Layer = 17;
+    public const int LocalPosition = 18;
+    public const int Weight = 19;
+    public const int SpriteRenderer = 20;
+    public const int Transform = 21;
+    public const int UsePrefabLocalPosition = 22;
+    public const int WorldPosition = 23;
+    public const int Direction = 24;
+    public const int MovementAvailable = 25;
+    public const int MovementPoint = 26;
+    public const int Moving = 27;
+    public const int Offset = 28;
+    public const int RotationAlignedAlongDirection = 29;
+    public const int Speed = 30;
+    public const int SyncWorldPositionWithTransform = 31;
+    public const int TargetId = 32;
+    public const int TurnedAlongDirection = 33;
+    public const int BaseStats = 34;
+    public const int StatChange = 35;
+    public const int StatModifiers = 36;
+    public const int Ui = 37;
 
-    public const int TotalComponents = 34;
+    public const int TotalComponents = 38;
 
     public static readonly string[] componentNames = {
         "Destructed",
         "Radius",
         "SelfDestructTimer",
+        "Value",
         "View",
         "ViewParent",
         "ViewPath",
@@ -79,6 +84,9 @@ public static class GameComponentsLookup {
         "SyncWorldPositionWithTransform",
         "TargetId",
         "TurnedAlongDirection",
+        "BaseStats",
+        "StatChange",
+        "StatModifiers",
         "Ui"
     };
 
@@ -86,6 +94,7 @@ public static class GameComponentsLookup {
         typeof(Code.Common.Destructed),
         typeof(Code.Common.Radius),
         typeof(Code.Common.SelfDestructTimer),
+        typeof(Code.Common.ValueComponent),
         typeof(Code.Common.View),
         typeof(Code.Common.ViewParent),
         typeof(Code.Common.ViewPath),
@@ -116,6 +125,9 @@ public static class GameComponentsLookup {
         typeof(Code.Core.Features.Movement.SyncWorldPositionWithTransform),
         typeof(Code.Core.Features.Movement.TargetId),
         typeof(Code.Core.Features.Movement.TurnedAlongDirection),
+        typeof(Code.Core.Features.Stats.BaseStats),
+        typeof(Code.Core.Features.Stats.StatChange),
+        typeof(Code.Core.Features.Stats.StatModifiers),
         typeof(Code.Core.Ui.Ui)
     };
 }

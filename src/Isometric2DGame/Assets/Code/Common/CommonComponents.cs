@@ -9,4 +9,5 @@ namespace Code.Common
   [Game] public class ViewParent : IComponent { public Transform Value; }
   [Game] public class SelfDestructTimer : IComponent { public float Value; }
   [Game] public class Radius : IComponent { public float Value; }
+  [Game] public class ValueComponent : IComponent { public float Value; }
 }

@@ -42,12 +42,13 @@ public static class GameComponentsLookup {
     public const int SyncWorldPositionWithTransform = 31;
     public const int TargetId = 32;
     public const int TurnedAlongDirection = 33;
-    public const int BaseStats = 34;
-    public const int StatChange = 35;
-    public const int StatModifiers = 36;
-    public const int Ui = 37;
+    public const int Player = 34;
+    public const int BaseStats = 35;
+    public const int StatChange = 36;
+    public const int StatModifiers = 37;
+    public const int Ui = 38;
 
-    public const int TotalComponents = 38;
+    public const int TotalComponents = 39;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -84,6 +85,7 @@ public static class GameComponentsLookup {
         "SyncWorldPositionWithTransform",
         "TargetId",
         "TurnedAlongDirection",
+        "Player",
         "BaseStats",
         "StatChange",
         "StatModifiers",
@@ -125,6 +127,7 @@ public static class GameComponentsLookup {
         typeof(Code.Core.Features.Movement.SyncWorldPositionWithTransform),
         typeof(Code.Core.Features.Movement.TargetId),
         typeof(Code.Core.Features.Movement.TurnedAlongDirection),
+        typeof(Code.Core.Features.Players.Player),
         typeof(Code.Core.Features.Stats.BaseStats),
         typeof(Code.Core.Features.Stats.StatChange),
         typeof(Code.Core.Features.Stats.StatModifiers),

@@ -6,7 +6,7 @@ using Entitas;
 
 namespace Code.Core.Features.Stats.Systems
 {
-    public class StatChangeSystem : IExecuteSystem, IInitializeSystem
+    public class StatChangeSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _statOwners;
         private readonly GameContext _game;
@@ -32,23 +32,6 @@ namespace Code.Core.Features.Stats.Systems
                 foreach (var statChange in _game.TargetStatChanges(stat, statOwner.Id)) 
                     statOwner.StatModifiers[stat] += statChange.Value;
             }
-        }
-
-        public void Initialize()
-        {
-            Dictionary<StatId, float> dictionary = InitStats.EmptyStatDictionary();
-            
-            CreateEntity.Empty()
-                .AddId(999)
-                .AddBaseStats(InitStats.EmptyStatDictionary())
-                .AddSpeed(0)
-                .AddStatModifiers(dictionary);
-
-            CreateEntity.Empty()
-                .AddTargetId(999)
-                .AddStatChange(StatId.Speed)
-                .AddValue(100)
-                ;
         }
     }
 }

@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Code.Common.Extensions;
 using Code.Common.Windows;
 using Code.Common.Windows.Configs;
+using Code.Core.Features.Players.Configs;
+using Code.Core.Features.Stats;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Loading;
+using Code.Infrastructure.View;
 using UnityEngine;
 
 namespace Code.Common.StaticData
@@ -15,6 +19,7 @@ namespace Code.Common.StaticData
     
     private Dictionary<WindowId, GameObject> _windowPrefabsById;
     private LoadingScreen _loadingScreenPrefab;
+    private PlayerConfig _playerConfig;
 
     public StaticDataService(IAssetProvider assetProvider)
     {
@@ -25,6 +30,7 @@ namespace Code.Common.StaticData
     {
       LoadWindows();
       LoadScreens();
+      LoadPrefabConfig();
     }
 
     public GameObject GetWindowPrefab(WindowId id) =>
@@ -34,6 +40,12 @@ namespace Code.Common.StaticData
 
     public LoadingScreen GetLoadingScreenPrefab()
       => _loadingScreenPrefab;
+
+    public EntityBehaviour GetPlayerPrefab() => _playerConfig.Prefab;
+
+    public Dictionary<StatId, float> GetPlayerStats() => 
+      InitStats.EmptyStatDictionary()
+        .With(x => x[StatId.Speed] = _playerConfig.Speed);
 
     private void LoadScreens() => 
       _loadingScreenPrefab = _assetProvider.LoadAsset<LoadingScreen>("Loading/loadingScreen");
@@ -45,5 +57,8 @@ namespace Code.Common.StaticData
         .WindowConfigs
         .ToDictionary(x => x.Id, x => x.Prefab);
     }
+    
+    private void LoadPrefabConfig() => 
+      _playerConfig = _assetProvider.LoadAsset<PlayerConfig>("Configs/Players/playerConfig");
   }
 }

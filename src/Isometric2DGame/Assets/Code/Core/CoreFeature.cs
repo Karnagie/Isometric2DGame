@@ -1,5 +1,6 @@
 ﻿using Code.Common.Windows.Systems;
 using Code.Core.Cameras;
+using Code.Core.Features.Stats;
 using Code.Core.Input;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View;
@@ -13,6 +14,8 @@ namespace Code.Core
     {
       Add(systems.Create<InputFeature>());
       Add(systems.Create<BindViewFeature>());
+
+      Add(systems.Create<StatsFeature>());
 
       Add(systems.Create<OpenWindowByRequestSystem>());
       Add(systems.Create<CloseWindowByRequestSystem>());

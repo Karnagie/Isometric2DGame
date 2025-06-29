@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherSwitchCameraRequest;
+    static Entitas.IMatcher<GameEntity> _matcherPlayer;
 
-    public static Entitas.IMatcher<GameEntity> SwitchCameraRequest {
+    public static Entitas.IMatcher<GameEntity> Player {
         get {
-            if (_matcherSwitchCameraRequest == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.SwitchCameraRequest);
+            if (_matcherPlayer == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.Player);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherSwitchCameraRequest = matcher;
+                _matcherPlayer = matcher;
             }
 
-            return _matcherSwitchCameraRequest;
+            return _matcherPlayer;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Core.Cameras.SwitchCameraRequest switchCameraRequestComponent = new Code.Core.Cameras.SwitchCameraRequest();
+    static readonly Code.Core.Features.Players.Player playerComponent = new Code.Core.Features.Players.Player();
 
-    public bool isSwitchCameraRequest {
-        get { return HasComponent(GameComponentsLookup.SwitchCameraRequest); }
+    public bool isPlayer {
+        get { return HasComponent(GameComponentsLookup.Player); }
         set {
-            if (value != isSwitchCameraRequest) {
-                var index = GameComponentsLookup.SwitchCameraRequest;
+            if (value != isPlayer) {
+                var index = GameComponentsLookup.Player;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : switchCameraRequestComponent;
+                            : playerComponent;
 
                     AddComponent(index, component);
                 } else {

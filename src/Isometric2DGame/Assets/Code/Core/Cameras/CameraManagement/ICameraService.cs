@@ -1,9 +1,11 @@
-﻿namespace Code.Core.Cameras.CameraManagement
+﻿using Unity.Cinemachine;
+
+namespace Code.Core.Cameras.CameraManagement
 {
     public interface ICameraService
     {
-        UnityEngine.Camera MainCamera { get; }
+        CinemachineCamera MainCamera { get; }
         
-        void Initialize(UnityEngine.Camera camera);
+        void Initialize(CinemachineCamera camera);
     }
 }

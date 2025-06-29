@@ -1,3 +1,4 @@
+using Code.Common.EntityIndices;
 using Code.Common.StaticData;
 using Code.Common.Windows;
 using Code.Core.Cameras.CameraManagement;
@@ -5,6 +6,7 @@ using Code.Core.Common.Collisions;
 using Code.Core.Common.Physics;
 using Code.Core.Common.Random;
 using Code.Core.Common.Time;
+using Code.Core.Features.Players.Factories;
 using Code.Core.Input.Services;
 using Code.Core.Levels;
 using Code.Infrastructure.AssetManagement;
@@ -43,6 +45,12 @@ namespace Code.Infrastructure.Installers
       BindStateFactory();
       BindGameStates();
       BindProgressServices();
+      BindGameEntityIndices();
+    }
+
+    private void BindGameEntityIndices()
+    {
+      Container.BindInterfacesAndSelfTo<GameEntityIndices>().AsSingle();
     }
 
     private void BindBootstrap()
@@ -94,6 +102,7 @@ namespace Code.Infrastructure.Installers
     private void BindCoreFactories()
     {
       Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
+      Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
     }
     
     private void BindSystemFactory()

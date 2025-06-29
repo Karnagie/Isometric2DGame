@@ -32,23 +32,24 @@ public static class GameComponentsLookup {
     public const int Transform = 21;
     public const int UsePrefabLocalPosition = 22;
     public const int WorldPosition = 23;
-    public const int Direction = 24;
-    public const int MovementAvailable = 25;
-    public const int MovementPoint = 26;
-    public const int Moving = 27;
-    public const int Offset = 28;
-    public const int RotationAlignedAlongDirection = 29;
-    public const int Speed = 30;
-    public const int SyncWorldPositionWithTransform = 31;
-    public const int TargetId = 32;
-    public const int TurnedAlongDirection = 33;
-    public const int Player = 34;
-    public const int BaseStats = 35;
-    public const int StatChange = 36;
-    public const int StatModifiers = 37;
-    public const int Ui = 38;
+    public const int Enemy = 24;
+    public const int Direction = 25;
+    public const int MovementAvailable = 26;
+    public const int MovementPoint = 27;
+    public const int Moving = 28;
+    public const int Offset = 29;
+    public const int RotationAlignedAlongDirection = 30;
+    public const int Speed = 31;
+    public const int SyncWorldPositionWithTransform = 32;
+    public const int TargetId = 33;
+    public const int TurnedAlongDirection = 34;
+    public const int Player = 35;
+    public const int BaseStats = 36;
+    public const int StatChange = 37;
+    public const int StatModifiers = 38;
+    public const int Ui = 39;
 
-    public const int TotalComponents = 39;
+    public const int TotalComponents = 40;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -75,6 +76,7 @@ public static class GameComponentsLookup {
         "Transform",
         "UsePrefabLocalPosition",
         "WorldPosition",
+        "Enemy",
         "Direction",
         "MovementAvailable",
         "MovementPoint",
@@ -117,6 +119,7 @@ public static class GameComponentsLookup {
         typeof(Code.Core.Common.TransformComponent),
         typeof(Code.Core.Common.UsePrefabLocalPosition),
         typeof(Code.Core.Common.WorldPosition),
+        typeof(Code.Core.Features.Enemies.Enemy),
         typeof(Code.Core.Features.Movement.Direction),
         typeof(Code.Core.Features.Movement.MovementAvailable),
         typeof(Code.Core.Features.Movement.MovementPoint),

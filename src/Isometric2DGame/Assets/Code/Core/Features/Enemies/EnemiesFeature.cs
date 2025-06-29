@@ -8,6 +8,11 @@ namespace Code.Core.Features.Enemies
         public EnemiesFeature(ISystemFactory systems)
         {
             Add(systems.Create<SetRoutePointsForEnemiesSystemSystem>());
+            
+            Add(systems.Create<SetPlayerInRadiusSystem>());
+            Add(systems.Create<SetPlayerInAttackRadiusSystem>());
+            
+            Add(systems.Create<UpdateEnemyStateSystem>());
         }
     }
 }

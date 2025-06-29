@@ -32,27 +32,34 @@ public static class GameComponentsLookup {
     public const int Transform = 21;
     public const int UsePrefabLocalPosition = 22;
     public const int WorldPosition = 23;
-    public const int Enemy = 24;
-    public const int Direction = 25;
-    public const int MovementAvailable = 26;
-    public const int MovementPoint = 27;
-    public const int Moving = 28;
-    public const int Offset = 29;
-    public const int RotationAlignedAlongDirection = 30;
-    public const int Speed = 31;
-    public const int SyncWorldPositionWithTransform = 32;
-    public const int TargetId = 33;
-    public const int TurnedAlongDirection = 34;
-    public const int Player = 35;
-    public const int CurrentRoutePoint = 36;
-    public const int RoutePoints = 37;
-    public const int Routing = 38;
-    public const int BaseStats = 39;
-    public const int StatChange = 40;
-    public const int StatModifiers = 41;
-    public const int Ui = 42;
+    public const int ActionPlanner = 24;
+    public const int Actions = 25;
+    public const int ChangeActionRequest = 26;
+    public const int CurrentAction = 27;
+    public const int PlayerInAttackRadius = 28;
+    public const int PlayerInRadius = 29;
+    public const int AttackRadius = 30;
+    public const int Enemy = 31;
+    public const int Direction = 32;
+    public const int MovementAvailable = 33;
+    public const int MovementPoint = 34;
+    public const int Moving = 35;
+    public const int Offset = 36;
+    public const int RotationAlignedAlongDirection = 37;
+    public const int Speed = 38;
+    public const int SyncWorldPositionWithTransform = 39;
+    public const int TargetId = 40;
+    public const int TurnedAlongDirection = 41;
+    public const int Player = 42;
+    public const int CurrentRoutePoint = 43;
+    public const int RoutePoints = 44;
+    public const int Routing = 45;
+    public const int BaseStats = 46;
+    public const int StatChange = 47;
+    public const int StatModifiers = 48;
+    public const int Ui = 49;
 
-    public const int TotalComponents = 43;
+    public const int TotalComponents = 50;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -79,6 +86,13 @@ public static class GameComponentsLookup {
         "Transform",
         "UsePrefabLocalPosition",
         "WorldPosition",
+        "ActionPlanner",
+        "Actions",
+        "ChangeActionRequest",
+        "CurrentAction",
+        "PlayerInAttackRadius",
+        "PlayerInRadius",
+        "AttackRadius",
         "Enemy",
         "Direction",
         "MovementAvailable",
@@ -125,6 +139,13 @@ public static class GameComponentsLookup {
         typeof(Code.Core.Common.TransformComponent),
         typeof(Code.Core.Common.UsePrefabLocalPosition),
         typeof(Code.Core.Common.WorldPosition),
+        typeof(Code.Core.Features.ActionPlanning.ActionPlanner),
+        typeof(Code.Core.Features.ActionPlanning.Actions),
+        typeof(Code.Core.Features.ActionPlanning.ChangeActionRequest),
+        typeof(Code.Core.Features.ActionPlanning.CurrentAction),
+        typeof(Code.Core.Features.ActionPlanning.PlayerInAttackRadius),
+        typeof(Code.Core.Features.ActionPlanning.PlayerInRadius),
+        typeof(Code.Core.Features.Enemies.AttackRadius),
         typeof(Code.Core.Features.Enemies.Enemy),
         typeof(Code.Core.Features.Movement.Direction),
         typeof(Code.Core.Features.Movement.MovementAvailable),

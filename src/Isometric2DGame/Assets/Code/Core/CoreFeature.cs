@@ -5,6 +5,7 @@ using Code.Core.Features.Cooldowns;
 using Code.Core.Features.Enemies;
 using Code.Core.Features.Lifetime;
 using Code.Core.Features.Players;
+using Code.Core.Features.Processes;
 using Code.Core.Features.Routing;
 using Code.Core.Features.Stats;
 using Code.Core.Input;
@@ -27,8 +28,9 @@ namespace Code.Core
       Add(systems.Create<EnemiesFeature>());
       Add(systems.Create<RoutingFeature>());
       Add(systems.Create<StatsFeature>());
+      Add(systems.Create<ProcessesFeature>());
       Add(systems.Create<DeathFeature>());
-      
+
       Add(systems.Create<CooldownsFeature>());
 
       Add(systems.Create<OpenWindowByRequestSystem>());

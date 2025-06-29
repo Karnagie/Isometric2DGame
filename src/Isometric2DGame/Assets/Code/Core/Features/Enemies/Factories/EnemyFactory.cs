@@ -4,6 +4,7 @@ using Code.Common.Extensions;
 using Code.Common.StaticData;
 using Code.Core.Features.ActionPlanning;
 using Code.Core.Features.ActionPlanning.EnemyActions;
+using Code.Core.Features.Processes.Factories;
 using Code.Core.Features.Stats;
 using Code.Infrastructure;
 using Code.Infrastructure.Identifiers;
@@ -17,13 +18,16 @@ namespace Code.Core.Features.Enemies.Factories
         private readonly IStaticDataService _staticData;
         private readonly GameContext _game;
         private readonly ICoroutineRunner _coroutineRunner;
+        private readonly IProcessFactory _processFactory;
 
         public EnemyFactory(
             IIdentifierService id, 
             IStaticDataService staticData, 
             GameContext game, 
-            ICoroutineRunner coroutineRunner)
+            ICoroutineRunner coroutineRunner,
+            IProcessFactory processFactory)
         {
+            _processFactory = processFactory;
             _coroutineRunner = coroutineRunner;
             _game = game;
             _staticData = staticData;
@@ -59,7 +63,7 @@ namespace Code.Core.Features.Enemies.Factories
                 {ActionNames.Idle, idleAction},
                 {ActionNames.Routing, new RouteAction(enemy, ActionNames.Routing, _coroutineRunner)},
                 {ActionNames.Chase, new ChaseAction(enemy, ActionNames.Chase, _game)},
-                {ActionNames.Attack, new AttackAction(enemy, ActionNames.Attack)},
+                {ActionNames.Attack, new AttackAction(enemy, ActionNames.Attack, _processFactory)},
             });
             
             return enemy;

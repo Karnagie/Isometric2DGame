@@ -14,6 +14,7 @@ namespace Code.Core
     public CoreFeature(ISystemFactory systems)
     {
       Add(systems.Create<InputFeature>());
+      Add(systems.Create<CamerasFeature>());
       Add(systems.Create<BindViewFeature>());
 
       Add(systems.Create<PlayersFeature>());
@@ -21,7 +22,6 @@ namespace Code.Core
 
       Add(systems.Create<OpenWindowByRequestSystem>());
       Add(systems.Create<CloseWindowByRequestSystem>());
-      Add(systems.Create<CamerasFeature>());
     }
   }
 }

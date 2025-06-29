@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherSwitchCameraRequest;
+    static Entitas.IMatcher<GameEntity> _matcherUpdateCameraTargetRequest;
 
-    public static Entitas.IMatcher<GameEntity> SwitchCameraRequest {
+    public static Entitas.IMatcher<GameEntity> UpdateCameraTargetRequest {
         get {
-            if (_matcherSwitchCameraRequest == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.SwitchCameraRequest);
+            if (_matcherUpdateCameraTargetRequest == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.UpdateCameraTargetRequest);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherSwitchCameraRequest = matcher;
+                _matcherUpdateCameraTargetRequest = matcher;
             }
 
-            return _matcherSwitchCameraRequest;
+            return _matcherUpdateCameraTargetRequest;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Core.Cameras.SwitchCameraRequest switchCameraRequestComponent = new Code.Core.Cameras.SwitchCameraRequest();
+    static readonly Code.Core.Cameras.UpdateCameraTargetRequest updateCameraTargetRequestComponent = new Code.Core.Cameras.UpdateCameraTargetRequest();
 
-    public bool isSwitchCameraRequest {
-        get { return HasComponent(GameComponentsLookup.SwitchCameraRequest); }
+    public bool isUpdateCameraTargetRequest {
+        get { return HasComponent(GameComponentsLookup.UpdateCameraTargetRequest); }
         set {
-            if (value != isSwitchCameraRequest) {
-                var index = GameComponentsLookup.SwitchCameraRequest;
+            if (value != isUpdateCameraTargetRequest) {
+                var index = GameComponentsLookup.UpdateCameraTargetRequest;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : switchCameraRequestComponent;
+                            : updateCameraTargetRequestComponent;
 
                     AddComponent(index, component);
                 } else {

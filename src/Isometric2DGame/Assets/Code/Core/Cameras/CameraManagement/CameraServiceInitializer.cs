@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Unity.Cinemachine;
 using UnityEngine;
 using Zenject;
 
@@ -6,7 +7,7 @@ namespace Code.Core.Cameras.CameraManagement
 {
     public class CameraServiceInitializer : MonoBehaviour, IInitializable
     {
-        public UnityEngine.Camera Camera;
+        public CinemachineCamera Camera;
         
         private ICameraService _cameraService;
 

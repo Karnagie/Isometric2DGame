@@ -16,8 +16,6 @@ namespace Code.Infrastructure.States.GameStates
 {
   public class CoreEnterState : SimpleState
   {
-    private CoreFeature _coreFeature;
-    
     private readonly IGameStateMachine _stateMachine;
     private readonly GameContext _gameContext;
     private readonly ILoadingViewService _loading;

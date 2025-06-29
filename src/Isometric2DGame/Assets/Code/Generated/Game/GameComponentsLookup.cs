@@ -21,7 +21,7 @@ public static class GameComponentsLookup {
     public const int WindowId = 10;
     public const int WindowRequest = 11;
     public const int Camera = 12;
-    public const int SwitchCameraRequest = 13;
+    public const int UpdateCameraTargetRequest = 13;
     public const int Active = 14;
     public const int EntityLink = 15;
     public const int Id = 16;
@@ -64,7 +64,7 @@ public static class GameComponentsLookup {
         "WindowId",
         "WindowRequest",
         "Camera",
-        "SwitchCameraRequest",
+        "UpdateCameraTargetRequest",
         "Active",
         "EntityLink",
         "Id",
@@ -106,7 +106,7 @@ public static class GameComponentsLookup {
         typeof(Code.Common.Windows.WindowIdComponent),
         typeof(Code.Common.Windows.WindowRequest),
         typeof(Code.Core.Cameras.Camera),
-        typeof(Code.Core.Cameras.SwitchCameraRequest),
+        typeof(Code.Core.Cameras.UpdateCameraTargetRequest),
         typeof(Code.Core.Common.Active),
         typeof(Code.Core.Common.EntityLink),
         typeof(Code.Core.Common.Id),

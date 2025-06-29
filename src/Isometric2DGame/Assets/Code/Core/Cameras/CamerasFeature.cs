@@ -1,4 +1,5 @@
-﻿using Code.Infrastructure.Systems;
+﻿using Code.Core.Cameras.Systems;
+using Code.Infrastructure.Systems;
 
 namespace Code.Core.Cameras
 {
@@ -6,7 +7,9 @@ namespace Code.Core.Cameras
     {
         public CamerasFeature(ISystemFactory systems)
         {
+            Add(systems.Create<EmitCameraTargetUpdateSystem>());
             
+            Add(systems.Create<SetTargetForCamerasToPlayerSystem>());
         }
     }
 }

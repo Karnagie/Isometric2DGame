@@ -38,32 +38,36 @@ public static class GameComponentsLookup {
     public const int CurrentAction = 27;
     public const int PlayerInAttackRadius = 28;
     public const int PlayerInRadius = 29;
-    public const int AttackRadius = 30;
-    public const int Enemy = 31;
-    public const int CurrentHp = 32;
-    public const int Dead = 33;
-    public const int MaxHp = 34;
-    public const int ProcessingDeath = 35;
-    public const int Direction = 36;
-    public const int MovementAvailable = 37;
-    public const int MovementPoint = 38;
-    public const int Moving = 39;
-    public const int Offset = 40;
-    public const int RotationAlignedAlongDirection = 41;
-    public const int Speed = 42;
-    public const int SyncWorldPositionWithTransform = 43;
-    public const int TargetId = 44;
-    public const int TurnedAlongDirection = 45;
-    public const int Player = 46;
-    public const int CurrentRoutePoint = 47;
-    public const int RoutePoints = 48;
-    public const int Routing = 49;
-    public const int BaseStats = 50;
-    public const int StatChange = 51;
-    public const int StatModifiers = 52;
-    public const int Ui = 53;
+    public const int Cooldown = 30;
+    public const int CooldownLeft = 31;
+    public const int CooldownUp = 32;
+    public const int DestructOnCooldownUp = 33;
+    public const int AttackRadius = 34;
+    public const int Enemy = 35;
+    public const int CurrentHp = 36;
+    public const int Dead = 37;
+    public const int MaxHp = 38;
+    public const int ProcessingDeath = 39;
+    public const int Direction = 40;
+    public const int MovementAvailable = 41;
+    public const int MovementPoint = 42;
+    public const int Moving = 43;
+    public const int Offset = 44;
+    public const int RotationAlignedAlongDirection = 45;
+    public const int Speed = 46;
+    public const int SyncWorldPositionWithTransform = 47;
+    public const int TargetId = 48;
+    public const int TurnedAlongDirection = 49;
+    public const int Player = 50;
+    public const int CurrentRoutePoint = 51;
+    public const int RoutePoints = 52;
+    public const int Routing = 53;
+    public const int BaseStats = 54;
+    public const int StatChange = 55;
+    public const int StatModifiers = 56;
+    public const int Ui = 57;
 
-    public const int TotalComponents = 54;
+    public const int TotalComponents = 58;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -96,6 +100,10 @@ public static class GameComponentsLookup {
         "CurrentAction",
         "PlayerInAttackRadius",
         "PlayerInRadius",
+        "Cooldown",
+        "CooldownLeft",
+        "CooldownUp",
+        "DestructOnCooldownUp",
         "AttackRadius",
         "Enemy",
         "CurrentHp",
@@ -153,6 +161,10 @@ public static class GameComponentsLookup {
         typeof(Code.Core.Features.ActionPlanning.CurrentAction),
         typeof(Code.Core.Features.ActionPlanning.PlayerInAttackRadius),
         typeof(Code.Core.Features.ActionPlanning.PlayerInRadius),
+        typeof(Code.Core.Features.Cooldowns.Cooldown),
+        typeof(Code.Core.Features.Cooldowns.CooldownLeft),
+        typeof(Code.Core.Features.Cooldowns.CooldownUp),
+        typeof(Code.Core.Features.Cooldowns.DestructOnCooldownUp),
         typeof(Code.Core.Features.Enemies.AttackRadius),
         typeof(Code.Core.Features.Enemies.Enemy),
         typeof(Code.Core.Features.Lifetime.CurrentHp),

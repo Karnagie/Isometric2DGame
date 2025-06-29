@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using Code.Core.Features.Cooldowns;
+using DG.Tweening;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Core.Features.Lifetime.Systems
 {
@@ -25,7 +28,16 @@ namespace Code.Core.Features.Lifetime.Systems
         {
           entity.isDead = true;
           entity.isProcessingDeath = true;
-          entity.isDestructed = true;
+
+          entity.isMovementAvailable = false;
+
+          if (entity.hasTransform)
+          {
+            entity.PutOnCooldown(1);
+            entity.Transform.DOScale(Vector3.zero, 1f);
+          }
+          else
+            entity.isDestructed = true;
         }
       }
     }

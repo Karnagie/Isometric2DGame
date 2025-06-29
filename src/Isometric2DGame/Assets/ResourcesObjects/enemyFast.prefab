@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3797881959760744391}
   - component: {fileID: 4009240092872224207}
   - component: {fileID: 8110201141710047318}
+  - component: {fileID: 8258147426186817317}
   m_Layer: 0
   m_Name: enemyFast
   m_TagString: Untagged
@@ -59,6 +60,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EntityView: {fileID: 4009240092872224207}
+--- !u!114 &8258147426186817317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382967282293281840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c85afcabe40b463d8e767f439e2ad0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EntityBehaviour: {fileID: 4009240092872224207}
 --- !u!1 &5957573273589736092
 GameObject:
   m_ObjectHideFlags: 0

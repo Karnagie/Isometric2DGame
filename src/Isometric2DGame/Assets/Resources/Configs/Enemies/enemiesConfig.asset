@@ -15,7 +15,9 @@ MonoBehaviour:
   Enemies:
   - Id: 1
     Speed: 4
+    Health: 100
     Prefab: {fileID: 3267163485381683307, guid: 99f5c2290137a7e42957a16848cfaa6f, type: 3}
   - Id: 2
     Speed: 8
+    Health: 50
     Prefab: {fileID: 4009240092872224207, guid: 7e5be899723cff7409bc18ea46c3f4fd, type: 3}

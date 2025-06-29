@@ -49,14 +49,17 @@ namespace Code.Common.StaticData
     public EntityBehaviour GetEnemyPrefab(EnemyId enemyId) =>  
       _enemyConfig.Enemies.Find(j => j.Id == enemyId).Prefab;
 
-    public Dictionary<StatId, float> GetPlayerStats() => 
+    public Dictionary<StatId, float> GetPlayerStats() =>
       InitStats.EmptyStatDictionary()
-        .With(x => x[StatId.Speed] = _playerConfig.Speed);
+        .With(x => x[StatId.Speed] = _playerConfig.Speed)
+        .With(x => x[StatId.Health] = _playerConfig.Health);
     
     public Dictionary<StatId, float> GetEnemyStats(EnemyId enemyId) => 
       InitStats.EmptyStatDictionary()
         .With(x => x[StatId.Speed] =
-          _enemyConfig.Enemies.Find(j => j.Id == enemyId).Speed);
+          _enemyConfig.Enemies.Find(j => j.Id == enemyId).Speed)
+        .With(x => x[StatId.Health] =
+          _enemyConfig.Enemies.Find(j => j.Id == enemyId).Health);
 
     private void LoadScreens() => 
       _loadingScreenPrefab = _assetProvider.LoadAsset<LoadingScreen>("Loading/loadingScreen");

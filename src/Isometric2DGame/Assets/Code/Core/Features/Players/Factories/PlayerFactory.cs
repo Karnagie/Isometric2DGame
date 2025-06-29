@@ -34,6 +34,9 @@ namespace Code.Core.Features.Players.Factories
                     .AddSpeed(0)
                     .AddWorldPosition(at)
                     .AddDirection(Vector2.zero)
+                
+                    .AddMaxHp(stats[StatId.Health])
+                    .AddCurrentHp(stats[StatId.Health])
                 ;
         }
     }

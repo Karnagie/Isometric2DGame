@@ -4,5 +4,6 @@ namespace Code.Core.Features.Stats
     {
         Unknown = 0, 
         Speed = 1,
+        Health = 2,
     }
 }

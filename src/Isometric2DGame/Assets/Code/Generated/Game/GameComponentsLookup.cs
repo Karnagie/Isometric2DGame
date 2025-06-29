@@ -59,15 +59,20 @@ public static class GameComponentsLookup {
     public const int TargetId = 48;
     public const int TurnedAlongDirection = 49;
     public const int Player = 50;
-    public const int CurrentRoutePoint = 51;
-    public const int RoutePoints = 52;
-    public const int Routing = 53;
-    public const int BaseStats = 54;
-    public const int StatChange = 55;
-    public const int StatModifiers = 56;
-    public const int Ui = 57;
+    public const int Damage = 51;
+    public const int Process = 52;
+    public const int Processed = 53;
+    public const int ProcessPause = 54;
+    public const int ProducerId = 55;
+    public const int CurrentRoutePoint = 56;
+    public const int RoutePoints = 57;
+    public const int Routing = 58;
+    public const int BaseStats = 59;
+    public const int StatChange = 60;
+    public const int StatModifiers = 61;
+    public const int Ui = 62;
 
-    public const int TotalComponents = 58;
+    public const int TotalComponents = 63;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -121,6 +126,11 @@ public static class GameComponentsLookup {
         "TargetId",
         "TurnedAlongDirection",
         "Player",
+        "Damage",
+        "Process",
+        "Processed",
+        "ProcessPause",
+        "ProducerId",
         "CurrentRoutePoint",
         "RoutePoints",
         "Routing",
@@ -182,6 +192,11 @@ public static class GameComponentsLookup {
         typeof(Code.Core.Features.Movement.TargetId),
         typeof(Code.Core.Features.Movement.TurnedAlongDirection),
         typeof(Code.Core.Features.Players.Player),
+        typeof(Code.Core.Features.Processes.Damage),
+        typeof(Code.Core.Features.Processes.Process),
+        typeof(Code.Core.Features.Processes.Processed),
+        typeof(Code.Core.Features.Processes.ProcessPause),
+        typeof(Code.Core.Features.Processes.ProducerId),
         typeof(Code.Core.Features.Routing.CurrentRoutePoint),
         typeof(Code.Core.Features.Routing.RoutePoints),
         typeof(Code.Core.Features.Routing.Routing),

@@ -1,5 +1,6 @@
 ﻿using Code.Common.Windows.Systems;
 using Code.Core.Cameras;
+using Code.Core.Features.Enemies;
 using Code.Core.Features.Players;
 using Code.Core.Features.Routing;
 using Code.Core.Features.Stats;
@@ -19,6 +20,7 @@ namespace Code.Core
       Add(systems.Create<BindViewFeature>());
 
       Add(systems.Create<PlayersFeature>());
+      Add(systems.Create<EnemiesFeature>());
       Add(systems.Create<RoutingFeature>());
       Add(systems.Create<StatsFeature>());
 

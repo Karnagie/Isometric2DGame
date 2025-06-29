@@ -36,8 +36,6 @@ namespace Code.Core.Features.Enemies.Factories
                     .AddDirection(Vector2.zero)
                 
                     .With(x => x.isRouting = true)
-                    .AddRoutePoints(new List<Vector2>()
-                        {new Vector3(0,0), new Vector3(5,5), new Vector3(0,5), new Vector3(5,0)})
                 ;
         }
     }

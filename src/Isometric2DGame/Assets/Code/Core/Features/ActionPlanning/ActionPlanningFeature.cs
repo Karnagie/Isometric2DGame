@@ -8,8 +8,10 @@ namespace Code.Core.Features.ActionPlanning
         public ActionPlanningFeature(ISystemFactory systems)
         {
             Add(systems.Create<SetCurrentActionSystem>());
-            Add(systems.Create<UpdateCurrentActionSystem>());
+            
             Add(systems.Create<UpdateWeightsSystem>());
+            Add(systems.Create<UpdateCurrentActionByCompletingSystem>());
+            Add(systems.Create<UpdateCurrentActionByRequestSystem>());
         }
     }
 }

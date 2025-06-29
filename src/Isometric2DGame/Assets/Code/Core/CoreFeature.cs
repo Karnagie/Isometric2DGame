@@ -20,9 +20,9 @@ namespace Code.Core
       Add(systems.Create<CamerasFeature>());
       Add(systems.Create<BindViewFeature>());
 
+      Add(systems.Create<ActionPlanningFeature>());
       Add(systems.Create<PlayersFeature>());
       Add(systems.Create<EnemiesFeature>());
-      Add(systems.Create<ActionPlanningFeature>());
       Add(systems.Create<RoutingFeature>());
       Add(systems.Create<StatsFeature>());
 

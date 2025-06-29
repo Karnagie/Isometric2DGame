@@ -44,7 +44,7 @@ namespace Code.Core.Features.ActionPlanning.EnemyActions
                 return true;
             
             var distance = Vector3.Distance(entity.WorldPosition, _game.GetEntityWithId(entity.TargetId).WorldPosition);
-            if (distance < 1)
+            if (distance < 0.1f)
                 return true;
 
             return false;

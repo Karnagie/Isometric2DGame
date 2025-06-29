@@ -45,6 +45,8 @@ namespace Code.Core.Features.Enemies.Factories
                 .AddSpeed(0)
                 .AddWorldPosition(at)
                 .AddDirection(Vector2.zero)
+                .AddRadius(5)
+                .AddAttackRadius(1)
                 
                 .With(x => x.isActionPlanner = true);
 

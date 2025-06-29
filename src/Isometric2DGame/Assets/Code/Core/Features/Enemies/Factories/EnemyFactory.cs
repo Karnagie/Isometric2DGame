@@ -48,6 +48,9 @@ namespace Code.Core.Features.Enemies.Factories
                 .AddRadius(5)
                 .AddAttackRadius(1)
                 
+                .AddMaxHp(stats[StatId.Health])
+                .AddCurrentHp(stats[StatId.Health])
+                
                 .With(x => x.isActionPlanner = true);
 
             var idleAction = new IdleAction(enemy, ActionNames.Idle, _coroutineRunner);

@@ -2,6 +2,7 @@
 using Code.Core.Cameras;
 using Code.Core.Features.ActionPlanning;
 using Code.Core.Features.Enemies;
+using Code.Core.Features.Lifetime;
 using Code.Core.Features.Players;
 using Code.Core.Features.Routing;
 using Code.Core.Features.Stats;
@@ -25,6 +26,7 @@ namespace Code.Core
       Add(systems.Create<EnemiesFeature>());
       Add(systems.Create<RoutingFeature>());
       Add(systems.Create<StatsFeature>());
+      Add(systems.Create<DeathFeature>());
 
       Add(systems.Create<OpenWindowByRequestSystem>());
       Add(systems.Create<CloseWindowByRequestSystem>());

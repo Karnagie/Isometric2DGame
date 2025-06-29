@@ -7,6 +7,7 @@ namespace Code.Core.Features.Players.Configs
     public class PlayerConfig : ScriptableObject
     {
         public float Speed;
+        public float Health;
         public EntityBehaviour Prefab;
     }
 }

@@ -9,6 +9,7 @@ namespace Code.Core.Features.Enemies.Configs
         public EnemyId Id;
         
         public float Speed;
+        public float Health;
         public EntityBehaviour Prefab;
     }
 }

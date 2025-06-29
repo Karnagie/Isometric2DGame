@@ -40,26 +40,30 @@ public static class GameComponentsLookup {
     public const int PlayerInRadius = 29;
     public const int AttackRadius = 30;
     public const int Enemy = 31;
-    public const int Direction = 32;
-    public const int MovementAvailable = 33;
-    public const int MovementPoint = 34;
-    public const int Moving = 35;
-    public const int Offset = 36;
-    public const int RotationAlignedAlongDirection = 37;
-    public const int Speed = 38;
-    public const int SyncWorldPositionWithTransform = 39;
-    public const int TargetId = 40;
-    public const int TurnedAlongDirection = 41;
-    public const int Player = 42;
-    public const int CurrentRoutePoint = 43;
-    public const int RoutePoints = 44;
-    public const int Routing = 45;
-    public const int BaseStats = 46;
-    public const int StatChange = 47;
-    public const int StatModifiers = 48;
-    public const int Ui = 49;
+    public const int CurrentHp = 32;
+    public const int Dead = 33;
+    public const int MaxHp = 34;
+    public const int ProcessingDeath = 35;
+    public const int Direction = 36;
+    public const int MovementAvailable = 37;
+    public const int MovementPoint = 38;
+    public const int Moving = 39;
+    public const int Offset = 40;
+    public const int RotationAlignedAlongDirection = 41;
+    public const int Speed = 42;
+    public const int SyncWorldPositionWithTransform = 43;
+    public const int TargetId = 44;
+    public const int TurnedAlongDirection = 45;
+    public const int Player = 46;
+    public const int CurrentRoutePoint = 47;
+    public const int RoutePoints = 48;
+    public const int Routing = 49;
+    public const int BaseStats = 50;
+    public const int StatChange = 51;
+    public const int StatModifiers = 52;
+    public const int Ui = 53;
 
-    public const int TotalComponents = 50;
+    public const int TotalComponents = 54;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -94,6 +98,10 @@ public static class GameComponentsLookup {
         "PlayerInRadius",
         "AttackRadius",
         "Enemy",
+        "CurrentHp",
+        "Dead",
+        "MaxHp",
+        "ProcessingDeath",
         "Direction",
         "MovementAvailable",
         "MovementPoint",
@@ -147,6 +155,10 @@ public static class GameComponentsLookup {
         typeof(Code.Core.Features.ActionPlanning.PlayerInRadius),
         typeof(Code.Core.Features.Enemies.AttackRadius),
         typeof(Code.Core.Features.Enemies.Enemy),
+        typeof(Code.Core.Features.Lifetime.CurrentHp),
+        typeof(Code.Core.Features.Lifetime.Dead),
+        typeof(Code.Core.Features.Lifetime.MaxHp),
+        typeof(Code.Core.Features.Lifetime.ProcessingDeath),
         typeof(Code.Core.Features.Movement.Direction),
         typeof(Code.Core.Features.Movement.MovementAvailable),
         typeof(Code.Core.Features.Movement.MovementPoint),

@@ -85,7 +85,7 @@ namespace Code.Common.Extensions
     {
       var tmp = new Vector2();
       tmp.x = v.x;
-      tmp.y = v.z;
+      tmp.y = v.y;
       
       return tmp;
     }

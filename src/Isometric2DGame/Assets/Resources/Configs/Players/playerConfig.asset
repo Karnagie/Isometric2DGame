@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: playerConfig
   m_EditorClassIdentifier: 
   Speed: 10
+  Health: 100
   Prefab: {fileID: 3171550305896193217, guid: 0f3a8fa60edf54f429117dc3eef14176, type: 3}

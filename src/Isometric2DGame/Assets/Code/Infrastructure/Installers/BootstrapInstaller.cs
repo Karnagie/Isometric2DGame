@@ -6,6 +6,7 @@ using Code.Core.Common.Collisions;
 using Code.Core.Common.Physics;
 using Code.Core.Common.Random;
 using Code.Core.Common.Time;
+using Code.Core.Features.Enemies.Factories;
 using Code.Core.Features.Players.Factories;
 using Code.Core.Input.Services;
 using Code.Core.Levels;
@@ -103,6 +104,7 @@ namespace Code.Infrastructure.Installers
     {
       Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
       Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
+      Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
     }
     
     private void BindSystemFactory()

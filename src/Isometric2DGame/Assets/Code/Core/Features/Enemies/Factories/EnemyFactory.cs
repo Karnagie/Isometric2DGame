@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Common.StaticData;
@@ -33,6 +34,8 @@ namespace Code.Core.Features.Enemies.Factories
                     .AddSpeed(0)
                     .AddWorldPosition(at)
                     .AddDirection(Vector2.zero)
+                
+                    .With(x => x.isRouting = true)
                 ;
         }
     }

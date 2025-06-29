@@ -44,12 +44,15 @@ public static class GameComponentsLookup {
     public const int TargetId = 33;
     public const int TurnedAlongDirection = 34;
     public const int Player = 35;
-    public const int BaseStats = 36;
-    public const int StatChange = 37;
-    public const int StatModifiers = 38;
-    public const int Ui = 39;
+    public const int CurrentRoutePoint = 36;
+    public const int RoutePoints = 37;
+    public const int Routing = 38;
+    public const int BaseStats = 39;
+    public const int StatChange = 40;
+    public const int StatModifiers = 41;
+    public const int Ui = 42;
 
-    public const int TotalComponents = 40;
+    public const int TotalComponents = 43;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -88,6 +91,9 @@ public static class GameComponentsLookup {
         "TargetId",
         "TurnedAlongDirection",
         "Player",
+        "CurrentRoutePoint",
+        "RoutePoints",
+        "Routing",
         "BaseStats",
         "StatChange",
         "StatModifiers",
@@ -131,6 +137,9 @@ public static class GameComponentsLookup {
         typeof(Code.Core.Features.Movement.TargetId),
         typeof(Code.Core.Features.Movement.TurnedAlongDirection),
         typeof(Code.Core.Features.Players.Player),
+        typeof(Code.Core.Features.Routing.CurrentRoutePoint),
+        typeof(Code.Core.Features.Routing.RoutePoints),
+        typeof(Code.Core.Features.Routing.Routing),
         typeof(Code.Core.Features.Stats.BaseStats),
         typeof(Code.Core.Features.Stats.StatChange),
         typeof(Code.Core.Features.Stats.StatModifiers),

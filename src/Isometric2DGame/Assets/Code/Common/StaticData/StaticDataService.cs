@@ -4,6 +4,8 @@ using System.Linq;
 using Code.Common.Extensions;
 using Code.Common.Windows;
 using Code.Common.Windows.Configs;
+using Code.Core.Features.Enemies;
+using Code.Core.Features.Enemies.Configs;
 using Code.Core.Features.Players.Configs;
 using Code.Core.Features.Stats;
 using Code.Infrastructure.AssetManagement;
@@ -20,6 +22,7 @@ namespace Code.Common.StaticData
     private Dictionary<WindowId, GameObject> _windowPrefabsById;
     private LoadingScreen _loadingScreenPrefab;
     private PlayerConfig _playerConfig;
+    private EnemyConfig _enemyConfig;
 
     public StaticDataService(IAssetProvider assetProvider)
     {
@@ -31,6 +34,7 @@ namespace Code.Common.StaticData
       LoadWindows();
       LoadScreens();
       LoadPrefabConfig();
+      LoadEnemiesConfig();
     }
 
     public GameObject GetWindowPrefab(WindowId id) =>
@@ -42,10 +46,20 @@ namespace Code.Common.StaticData
       => _loadingScreenPrefab;
 
     public EntityBehaviour GetPlayerPrefab() => _playerConfig.Prefab;
+    public EntityBehaviour GetEnemyPrefab(EnemyId enemyId) =>  
+      _enemyConfig.Enemies.Find(j => j.Id == enemyId).Prefab;
 
-    public Dictionary<StatId, float> GetPlayerStats() => 
+    public Dictionary<StatId, float> GetPlayerStats() =>
       InitStats.EmptyStatDictionary()
-        .With(x => x[StatId.Speed] = _playerConfig.Speed);
+        .With(x => x[StatId.Speed] = _playerConfig.Speed)
+        .With(x => x[StatId.Health] = _playerConfig.Health);
+    
+    public Dictionary<StatId, float> GetEnemyStats(EnemyId enemyId) => 
+      InitStats.EmptyStatDictionary()
+        .With(x => x[StatId.Speed] =
+          _enemyConfig.Enemies.Find(j => j.Id == enemyId).Speed)
+        .With(x => x[StatId.Health] =
+          _enemyConfig.Enemies.Find(j => j.Id == enemyId).Health);
 
     private void LoadScreens() => 
       _loadingScreenPrefab = _assetProvider.LoadAsset<LoadingScreen>("Loading/loadingScreen");
@@ -60,5 +74,8 @@ namespace Code.Common.StaticData
     
     private void LoadPrefabConfig() => 
       _playerConfig = _assetProvider.LoadAsset<PlayerConfig>("Configs/Players/playerConfig");
+    
+    private void LoadEnemiesConfig() => 
+      _enemyConfig = _assetProvider.LoadAsset<EnemyConfig>("Configs/Enemies/enemiesConfig");
   }
 }

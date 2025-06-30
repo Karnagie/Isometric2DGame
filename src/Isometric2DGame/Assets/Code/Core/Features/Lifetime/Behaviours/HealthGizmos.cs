@@ -10,10 +10,17 @@ namespace Code.Core.Features.Lifetime.Behaviours
         
         private void OnDrawGizmos()
         {
-            DrawEntityHealthBar(
-                EntityBehaviour.Entity.WorldPosition, 
-                (int)EntityBehaviour.Entity.CurrentHp, 
-                (int)EntityBehaviour.Entity.MaxHp);
+            try
+            {
+                DrawEntityHealthBar(
+                    EntityBehaviour.Entity.WorldPosition, 
+                    (int)EntityBehaviour.Entity.CurrentHp, 
+                    (int)EntityBehaviour.Entity.MaxHp);
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
         }
         
          private void DrawEntityHealthBar(Vector3 entityPos, int current, int max)

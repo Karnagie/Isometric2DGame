@@ -1,3 +1,4 @@
+using Code.Infrastructure.Loggers.Unity;
 using UnityEngine;
 
 namespace Code.Core.Common.Physics
@@ -23,12 +24,23 @@ namespace Code.Core.Common.Physics
         public int OverlapCircle(Vector2 point, float radius, ContactFilter2D contactFilter, Collider2D[] results) => 
             Physics2D.OverlapCircle(point, radius, contactFilter, results);
 
-        public int OverlapSphereNonAlloc(Vector3 position, float radius, Collider[] results) => 
-            UnityEngine.Physics.OverlapSphereNonAlloc(position, radius, results);
+        public int OverlapSphereNonAlloc(Vector3 position, float radius, Collider2D[] results) => 
+            UnityEngine.Physics2D.OverlapCircle(position, radius, new ContactFilter2D(), results);
 
         public bool ComputePenetration(Collider colliderA, Vector3 positionA, Quaternion rotationA, Collider colliderB,
             Vector3 positionB, Quaternion rotationB, out Vector3 direction, out float distance) =>
             UnityEngine.Physics.ComputePenetration(colliderA, positionA, rotationA, colliderB, positionB, rotationB,
                 out direction, out distance);
+        
+        public bool ComputePenetration(Collider2D colliderA, Vector3 positionA, Quaternion rotationA, Collider2D colliderB,
+            Vector3 positionB, Quaternion rotationB, out Vector3 direction, out float distance)
+        {
+            var result = Physics2D.Distance(colliderA, colliderB);
+
+            direction = result.normal;
+            distance = -result.distance;
+
+            return result.isOverlapped;
+        }
     }
 }

@@ -8,17 +8,20 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
-    public const int Input = 0;
-    public const int MoveInput = 1;
+    public const int Attacking = 0;
+    public const int Input = 1;
+    public const int MoveInput = 2;
 
-    public const int TotalComponents = 2;
+    public const int TotalComponents = 3;
 
     public static readonly string[] componentNames = {
+        "Attacking",
         "Input",
         "MoveInput"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.Core.Input.Attacking),
         typeof(Code.Core.Input.Input),
         typeof(Code.Core.Input.MoveInput)
     };

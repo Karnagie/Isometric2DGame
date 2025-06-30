@@ -1,4 +1,5 @@
 ﻿using Code.Common.Windows.Systems;
+using Code.Core.Abilities;
 using Code.Core.Cameras;
 using Code.Core.Features.ActionPlanning;
 using Code.Core.Features.Cooldowns;
@@ -30,6 +31,7 @@ namespace Code.Core
       Add(systems.Create<RoutingFeature>());
       Add(systems.Create<StatsFeature>());
       Add(systems.Create<ProcessesFeature>());
+      Add(systems.Create<AbilitiesFeature>());
       Add(systems.Create<DeathFeature>());
 
       Add(systems.Create<CooldownsFeature>());

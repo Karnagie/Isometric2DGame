@@ -9,6 +9,7 @@ namespace Code.Core.Features.Processes
         {
             Add(systems.Create<__ProcessAttackLogSystem>());
             Add(systems.Create<ProcessAttackSystem>());
+            Add(systems.Create<ProcessByCooldownSystem>());
 
             Add(systems.Create<MarkProcessedEffectsSystem>());
         }

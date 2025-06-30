@@ -7,5 +7,6 @@ namespace Code.Core.Features.Processes
     {
         public string Process;
         public float Value;
+        public float Duration;
     }
 }

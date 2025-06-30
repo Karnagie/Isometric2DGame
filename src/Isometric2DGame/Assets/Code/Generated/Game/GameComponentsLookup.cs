@@ -20,61 +20,62 @@ public static class GameComponentsLookup {
     public const int Open = 9;
     public const int WindowId = 10;
     public const int WindowRequest = 11;
-    public const int Camera = 12;
-    public const int UpdateCameraTargetRequest = 13;
-    public const int Active = 14;
-    public const int EntityLink = 15;
-    public const int Id = 16;
-    public const int Layer = 17;
-    public const int LocalPosition = 18;
-    public const int Weight = 19;
-    public const int SpriteRenderer = 20;
-    public const int Transform = 21;
-    public const int UsePrefabLocalPosition = 22;
-    public const int WorldPosition = 23;
-    public const int ActionPlanner = 24;
-    public const int Actions = 25;
-    public const int ChangeActionRequest = 26;
-    public const int CurrentAction = 27;
-    public const int PlayerInAttackRadius = 28;
-    public const int PlayerInRadius = 29;
-    public const int Cooldown = 30;
-    public const int CooldownLeft = 31;
-    public const int CooldownUp = 32;
-    public const int DestructOnCooldownUp = 33;
-    public const int AttackRadius = 34;
-    public const int Enemy = 35;
-    public const int CurrentHp = 36;
-    public const int Dead = 37;
-    public const int MaxHp = 38;
-    public const int ProcessingDeath = 39;
-    public const int Direction = 40;
-    public const int MovementAvailable = 41;
-    public const int MovementPoint = 42;
-    public const int Moving = 43;
-    public const int Offset = 44;
-    public const int RotationAlignedAlongDirection = 45;
-    public const int Speed = 46;
-    public const int SyncWorldPositionWithTransform = 47;
-    public const int TargetId = 48;
-    public const int TurnedAlongDirection = 49;
-    public const int Player = 50;
-    public const int Damage = 51;
-    public const int Process = 52;
-    public const int Processed = 53;
-    public const int ProcessPause = 54;
-    public const int ProducerId = 55;
-    public const int CurrentRoutePoint = 56;
-    public const int RoutePoints = 57;
-    public const int Routing = 58;
-    public const int BaseStats = 59;
-    public const int StatChange = 60;
-    public const int StatModifiers = 61;
-    public const int Health = 62;
-    public const int TextField = 63;
-    public const int Ui = 64;
+    public const int SpeedAbility = 12;
+    public const int Camera = 13;
+    public const int UpdateCameraTargetRequest = 14;
+    public const int Active = 15;
+    public const int EntityLink = 16;
+    public const int Id = 17;
+    public const int Layer = 18;
+    public const int LocalPosition = 19;
+    public const int Weight = 20;
+    public const int SpriteRenderer = 21;
+    public const int Transform = 22;
+    public const int UsePrefabLocalPosition = 23;
+    public const int WorldPosition = 24;
+    public const int ActionPlanner = 25;
+    public const int Actions = 26;
+    public const int ChangeActionRequest = 27;
+    public const int CurrentAction = 28;
+    public const int PlayerInAttackRadius = 29;
+    public const int PlayerInRadius = 30;
+    public const int Cooldown = 31;
+    public const int CooldownLeft = 32;
+    public const int CooldownUp = 33;
+    public const int DestructOnCooldownUp = 34;
+    public const int AttackRadius = 35;
+    public const int Enemy = 36;
+    public const int CurrentHp = 37;
+    public const int Dead = 38;
+    public const int MaxHp = 39;
+    public const int ProcessingDeath = 40;
+    public const int Direction = 41;
+    public const int MovementAvailable = 42;
+    public const int MovementPoint = 43;
+    public const int Moving = 44;
+    public const int Offset = 45;
+    public const int RotationAlignedAlongDirection = 46;
+    public const int Speed = 47;
+    public const int SyncWorldPositionWithTransform = 48;
+    public const int TargetId = 49;
+    public const int TurnedAlongDirection = 50;
+    public const int Player = 51;
+    public const int Damage = 52;
+    public const int Process = 53;
+    public const int Processed = 54;
+    public const int ProcessPause = 55;
+    public const int ProducerId = 56;
+    public const int CurrentRoutePoint = 57;
+    public const int RoutePoints = 58;
+    public const int Routing = 59;
+    public const int BaseStats = 60;
+    public const int StatChange = 61;
+    public const int StatModifiers = 62;
+    public const int Health = 63;
+    public const int TextField = 64;
+    public const int Ui = 65;
 
-    public const int TotalComponents = 65;
+    public const int TotalComponents = 66;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -89,6 +90,7 @@ public static class GameComponentsLookup {
         "Open",
         "WindowId",
         "WindowRequest",
+        "SpeedAbility",
         "Camera",
         "UpdateCameraTargetRequest",
         "Active",
@@ -157,6 +159,7 @@ public static class GameComponentsLookup {
         typeof(Code.Common.Windows.Open),
         typeof(Code.Common.Windows.WindowIdComponent),
         typeof(Code.Common.Windows.WindowRequest),
+        typeof(Code.Core.Abilities.SpeedAbility),
         typeof(Code.Core.Cameras.Camera),
         typeof(Code.Core.Cameras.UpdateCameraTargetRequest),
         typeof(Code.Core.Common.Active),

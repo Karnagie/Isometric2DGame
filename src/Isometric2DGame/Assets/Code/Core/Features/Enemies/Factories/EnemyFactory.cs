@@ -48,6 +48,7 @@ namespace Code.Core.Features.Enemies.Factories
                 .AddViewPrefab(_staticData.GetEnemyPrefab(id))
                     
                 .AddBaseStats(stats)
+                .AddStatModifiers(InitStats.EmptyStatDictionary())
                 
                 .With(x => x.isMovementAvailable = true)
                 .AddSpeed(0)

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Core.Features.Cooldowns;
+using Code.Core.Features.Stats;
 
 namespace Code.Core.Features.Processes.Factories
 {
@@ -14,6 +16,7 @@ namespace Code.Core.Features.Processes.Factories
             _processes = new()
             {
                 {"damage", new List<Func<int, ProcessSetup, GameEntity>>(){Damage}},
+                {"speed-up", new List<Func<int, ProcessSetup, GameEntity>>(){SpeedUp}},
             };
         }
         
@@ -23,6 +26,17 @@ namespace Code.Core.Features.Processes.Factories
                     .With(x => x.isProcess = true)
                     .AddDamage(setup.Value)
                     .AddTargetId(targetId)
+                ;
+        }
+        
+        public GameEntity SpeedUp(int targetId, ProcessSetup setup)
+        {
+            return CreateEntity.Empty()
+                    .With(x => x.isProcess = true)
+                    .AddStatChange(StatId.Speed)
+                    .AddValue(5)
+                    .AddTargetId(targetId)
+                    .PutOnCooldown(setup.Duration)
                 ;
         }
         

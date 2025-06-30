@@ -8,6 +8,7 @@ using Code.Core.Features.Players;
 using Code.Core.Features.Processes;
 using Code.Core.Features.Routing;
 using Code.Core.Features.Stats;
+using Code.Core.Features.Ui;
 using Code.Core.Input;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View;
@@ -32,6 +33,7 @@ namespace Code.Core
       Add(systems.Create<DeathFeature>());
 
       Add(systems.Create<CooldownsFeature>());
+      Add(systems.Create<UiFeature>());
 
       Add(systems.Create<OpenWindowByRequestSystem>());
       Add(systems.Create<CloseWindowByRequestSystem>());

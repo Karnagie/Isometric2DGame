@@ -70,9 +70,11 @@ public static class GameComponentsLookup {
     public const int BaseStats = 59;
     public const int StatChange = 60;
     public const int StatModifiers = 61;
-    public const int Ui = 62;
+    public const int Health = 62;
+    public const int TextField = 63;
+    public const int Ui = 64;
 
-    public const int TotalComponents = 63;
+    public const int TotalComponents = 65;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -137,6 +139,8 @@ public static class GameComponentsLookup {
         "BaseStats",
         "StatChange",
         "StatModifiers",
+        "Health",
+        "TextField",
         "Ui"
     };
 
@@ -203,6 +207,8 @@ public static class GameComponentsLookup {
         typeof(Code.Core.Features.Stats.BaseStats),
         typeof(Code.Core.Features.Stats.StatChange),
         typeof(Code.Core.Features.Stats.StatModifiers),
+        typeof(Code.Core.Features.Ui.Health),
+        typeof(Code.Core.Features.Ui.TextField),
         typeof(Code.Core.Ui.Ui)
     };
 }

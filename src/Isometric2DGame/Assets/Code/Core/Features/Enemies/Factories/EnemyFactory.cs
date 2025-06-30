@@ -6,6 +6,7 @@ using Code.Core.Features.ActionPlanning;
 using Code.Core.Features.ActionPlanning.EnemyActions;
 using Code.Core.Features.Processes.Factories;
 using Code.Core.Features.Stats;
+using Code.Core.Features.Ui.Factories;
 using Code.Infrastructure;
 using Code.Infrastructure.Identifiers;
 using UnityEngine;
@@ -19,14 +20,17 @@ namespace Code.Core.Features.Enemies.Factories
         private readonly GameContext _game;
         private readonly ICoroutineRunner _coroutineRunner;
         private readonly IProcessFactory _processFactory;
+        private readonly IHealthBarFactory _healthBarFactory;
 
         public EnemyFactory(
             IIdentifierService id, 
             IStaticDataService staticData, 
             GameContext game, 
             ICoroutineRunner coroutineRunner,
-            IProcessFactory processFactory)
+            IProcessFactory processFactory,
+            IHealthBarFactory healthBarFactory)
         {
+            _healthBarFactory = healthBarFactory;
             _processFactory = processFactory;
             _coroutineRunner = coroutineRunner;
             _game = game;
@@ -65,7 +69,8 @@ namespace Code.Core.Features.Enemies.Factories
                 {ActionNames.Chase, new ChaseAction(enemy, ActionNames.Chase, _game)},
                 {ActionNames.Attack, new AttackAction(enemy, ActionNames.Attack, _processFactory)},
             });
-            
+
+            _healthBarFactory.Create(at, enemy.Id);
             return enemy;
         }
     }

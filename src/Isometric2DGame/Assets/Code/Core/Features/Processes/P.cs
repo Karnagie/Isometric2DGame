@@ -10,5 +10,15 @@ namespace Code.Core.Features.Processes
                 Value = value,
             };
         }
+
+        public static ProcessSetup EnemySpeedUp(float value, float duration)
+        {
+            return new ProcessSetup()
+            {
+                Process = "speed-up",
+                Value = value,
+                Duration = duration
+            };
+        }
     }
 }

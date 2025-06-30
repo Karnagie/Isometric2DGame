@@ -21,7 +21,7 @@ public class PhysicsServiceTests
     private GameObject _testGameObject;
     private GameObject _testGameObject2;
     private Collider2D _testCollider2D;
-    private Collider _testCollider;
+    private Collider2D _testCollider;
 
     [SetUp]
     public void SetUp()
@@ -34,7 +34,7 @@ public class PhysicsServiceTests
         _testGameObject2 = new GameObject("TestObject2");
         
         _testCollider2D = _testGameObject.AddComponent<BoxCollider2D>();
-        _testCollider = _testGameObject2.AddComponent<BoxCollider>();
+        _testCollider = _testGameObject2.AddComponent<BoxCollider2D>();
 
         _testEntity = new GameEntity();
         _testEntity2 = new GameEntity();
@@ -232,7 +232,7 @@ public class PhysicsServiceTests
         var worldPositionA = Vector3.zero;
         var collider = _testCollider;
 
-        _mockCollisionRegistry.Get(entity).Returns((Collider) null);
+        _mockCollisionRegistry.Get(entity).Returns((Collider2D) null);
 
         // Act
         var result = _physicsService.CalculatePosition(entity, worldPositionA, collider);
@@ -249,7 +249,7 @@ public class PhysicsServiceTests
         var worldPositionA = Vector3.zero;
         var near = _testEntity2;
 
-        _mockCollisionRegistry.Get(entity).Returns((Collider) null);
+        _mockCollisionRegistry.Get(entity).Returns((Collider2D) null);
 
         // Act
         var result = _physicsService.CalculatePosition(entity, worldPositionA, near);
@@ -267,7 +267,7 @@ public class PhysicsServiceTests
         var near = _testEntity2;
 
         _mockCollisionRegistry.Get(entity).Returns(_testCollider);
-        _mockCollisionRegistry.Get(near).Returns((Collider) null);
+        _mockCollisionRegistry.Get(near).Returns((Collider2D) null);
 
         // Act
         var result = _physicsService.CalculatePosition(entity, worldPositionA, near);
@@ -284,7 +284,7 @@ public class PhysicsServiceTests
         var position = Vector3.zero;
         var radius = 1.0f;
 
-        _mockCollisionRegistry.Get(entity).Returns((Collider) null);
+        _mockCollisionRegistry.Get(entity).Returns((Collider2D) null);
 
         // Act
         var result = _physicsService.FindNonEntityColliders(entity, position, radius);
@@ -302,7 +302,7 @@ public class PhysicsServiceTests
         var position = Vector3.zero;
         var radius = 1.0f;
 
-        _mockCollisionRegistry.Get(entity).Returns((Collider) null);
+        _mockCollisionRegistry.Get(entity).Returns((Collider2D) null);
 
         // Act
         var result = _physicsService.FindCollidedEntities(entity, position, radius);
@@ -319,7 +319,7 @@ public class PhysicsServiceTests
         var entity = _testEntity;
         var colliderB = _testCollider;
 
-        _mockCollisionRegistry.Get(entity).Returns((Collider) null);
+        _mockCollisionRegistry.Get(entity).Returns((Collider2D) null);
 
         // Act
         var result = _physicsService.GetPenetration(entity, colliderB);
@@ -337,7 +337,7 @@ public class PhysicsServiceTests
         var entity = _testEntity;
         var nearEntity = _testEntity2;
 
-        _mockCollisionRegistry.Get(entity).Returns((Collider) null);
+        _mockCollisionRegistry.Get(entity).Returns((Collider2D) null);
 
         // Act
         var result = _physicsService.GetPenetration(entity, nearEntity);

@@ -29,10 +29,12 @@ namespace Code.Core.Cameras.Systems
         public void Execute()
         {
             foreach (var request in _requests)
-            foreach (var player in _players)
             {
-                _cameraService.MainCamera.Target.TrackingTarget = player.Transform;
                 request.isDestructed = true;
+                foreach (var player in _players)
+                {
+                    _cameraService.MainCamera.Target.TrackingTarget = player.Transform;
+                }
             }
         }
     }

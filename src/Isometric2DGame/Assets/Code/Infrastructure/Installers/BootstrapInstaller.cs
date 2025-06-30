@@ -8,6 +8,8 @@ using Code.Core.Common.Random;
 using Code.Core.Common.Time;
 using Code.Core.Features.Enemies.Factories;
 using Code.Core.Features.Players.Factories;
+using Code.Core.Features.Processes.Factories;
+using Code.Core.Features.Ui.Factories;
 using Code.Core.Input.Services;
 using Code.Core.Levels;
 using Code.Infrastructure.AssetManagement;
@@ -105,6 +107,8 @@ namespace Code.Infrastructure.Installers
       Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
       Container.Bind<IPlayerFactory>().To<PlayerFactory>().AsSingle();
       Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
+      Container.Bind<IProcessFactory>().To<ProcessFactory>().AsSingle();
+      Container.Bind<IHealthBarFactory>().To<HealthBarFactory>().AsSingle();
     }
     
     private void BindSystemFactory()

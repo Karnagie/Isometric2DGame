@@ -1,10 +1,16 @@
-using Code.Infrastructure.Loggers.Unity;
+using Code.Core.Features.Processes;
+using Code.Core.Features.Processes.Factories;
 
 namespace Code.Core.Features.ActionPlanning.EnemyActions
 {
     public class AttackAction : Action
     {
-        public AttackAction(GameEntity entity, string name) : base(entity, name) { }
+        private readonly IProcessFactory _processFactory;
+        
+        public AttackAction(GameEntity entity, string name, IProcessFactory processFactory) : base(entity, name)
+        {
+            _processFactory = processFactory;
+        }
         
         protected override float UpdateWeightInternal(GameEntity entity)
         {
@@ -15,7 +21,7 @@ namespace Code.Core.Features.ActionPlanning.EnemyActions
 
         protected override bool IsCompleteInternal(GameEntity entity)
         {
-            $"Attacking!".Log();
+            _processFactory.Damage(entity.TargetId, P.Damage(0.1f));
             return true;
         }
     }

@@ -9,6 +9,7 @@ namespace Code.Core.Features.Players
         {
             Add(systems.Create<SetMovingByInputSystem>());
             Add(systems.Create<SetDirectionByInputSystem>());
+            Add(systems.Create<AttackByInputSystem>());
         }
     }
 }

@@ -25,13 +25,23 @@ namespace Code.Core.Common.Physics
             ContactFilter2D contactFilter,
             Collider2D[] results);
 
-        int OverlapSphereNonAlloc(Vector3 position, float radius, Collider[] results);
+        int OverlapSphereNonAlloc(Vector3 position, float radius, Collider2D[] results);
 
         bool ComputePenetration(
             Collider colliderA,
             Vector3 positionA,
             Quaternion rotationA,
             Collider colliderB,
+            Vector3 positionB,
+            Quaternion rotationB,
+            out Vector3 direction,
+            out float distance);
+        
+        bool ComputePenetration(
+            Collider2D colliderA,
+            Vector3 positionA,
+            Quaternion rotationA,
+            Collider2D colliderB,
             Vector3 positionB,
             Quaternion rotationB,
             out Vector3 direction,

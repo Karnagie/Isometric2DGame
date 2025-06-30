@@ -8,9 +8,9 @@ namespace Code.Core.Common.Collisions
   public class CollisionRegistry : ICollisionRegistry
   {
       private readonly Dictionary<int, IEntity> _entityByInstanceId = new();
-      private readonly Dictionary<IEntity, Collider> _colliderByInstanceId = new();
+      private readonly Dictionary<IEntity, Collider2D> _colliderByInstanceId = new();
 
-      public void Register(int instanceId, IEntity entity, Collider collider)
+      public void Register(int instanceId, IEntity entity, Collider2D collider)
       {
         _entityByInstanceId[instanceId] = entity;
         _colliderByInstanceId[entity] = collider;
@@ -32,10 +32,10 @@ namespace Code.Core.Common.Collisions
           : null;
       }
 
-      public Collider Get<TEntity>(TEntity entity) where TEntity : class, IEntity => 
+      public Collider2D Get<TEntity>(TEntity entity) where TEntity : class, IEntity => 
         _colliderByInstanceId.GetValueOrDefault(entity);
 
-      public bool Has(Collider collider) => 
+      public bool Has(Collider2D collider) => 
         _colliderByInstanceId.ContainsValue(collider);
   }
 }

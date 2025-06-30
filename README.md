@@ -6,6 +6,9 @@ A comprehensive Unity 2D isometric game demonstrating advanced technical impleme
 
 This project was developed as a technical assessment featuring a 2D isometric perspective game built in Unity. Despite time constraints (development limited to weekends due to full-time employment), the implementation showcases high-quality architecture, custom systems, and professional development practices. The focus was on delivering a solid core implementation with extensible, maintainable code architecture.
 
+## Gameplay in Editor
+https://github.com/user-attachments/assets/2932535f-3657-4d26-8bd8-f0e352d5ad29
+
 ## 📋 Table of Contents
 
 - [Key Technical Achievements](#-key-technical-achievements)
@@ -121,9 +124,6 @@ public class FinalizeDeathSystem : IExecuteSystem
 ### Controls
 - **Movement**: WASD or Arrow Keys
 - **Attack**: Left Mouse Button
-
-### Gameplay in Editor
-https://github.com/user-attachments/assets/2932535f-3657-4d26-8bd8-f0e352d5ad29
 
 **Technical Decision**: Prioritized solid core implementation over extensive feature breadth to demonstrate architectural competency and sustainable development practices.
 

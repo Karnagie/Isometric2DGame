@@ -10,6 +10,8 @@ namespace Code.Core.Features.Lifetime
     {
       Add(systems.Create<__MarkDeadLogSystem>());
       Add(systems.Create<MarkDeadSystem>());
+      
+      Add(systems.Create<FinalizeDeathSystem>());
     }
   }
 }

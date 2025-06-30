@@ -9,7 +9,8 @@ namespace Code.Core.Input
     {
       Add(systems.Create<InitializeInputSystem>());
       
-      Add(systems.Create<EmitInputSystem>());
+      Add(systems.Create<EmitMovementInputSystem>());
+      Add(systems.Create<EmitAttackInputSystem>());
     }
   }
 }

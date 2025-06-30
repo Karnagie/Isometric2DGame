@@ -23,7 +23,7 @@ namespace Code.Core.Features.Movement.Systems
         {
             foreach (var mover in _movers.GetEntities(_buffer))
             {
-                if ((mover.MovementPoint - mover.WorldPosition.ToVector2()).sqrMagnitude < 0.01f)
+                if ((mover.MovementPoint - mover.WorldPosition.ToVector2()).sqrMagnitude < 0.001f)
                 {
                     mover.RemoveMovementPoint();
                 }

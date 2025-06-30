@@ -6,5 +6,6 @@ namespace Code.Core.Input.Services
   {
     Vector2 GetMove();
     bool HasMove();
+    bool IsAttacking();
   }
 }

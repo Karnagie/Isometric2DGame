@@ -13,7 +13,8 @@ namespace Code.Core.Features.Movement.Systems
         {
             _movers = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.Speed));
+                    GameMatcher.Speed)
+                .NoneOf(GameMatcher.ProcessingDeath));
         }
 
         public void Execute()

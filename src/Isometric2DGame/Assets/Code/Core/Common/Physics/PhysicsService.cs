@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Code.Core.Common.Collisions;
+using Code.Infrastructure.Loggers.Unity;
 using UnityEngine;
 
 namespace Code.Core.Common.Physics
@@ -11,7 +12,7 @@ namespace Code.Core.Common.Physics
     private static readonly Collider2D[] OverlapHits = new Collider2D[128];
     
     private readonly ICollisionRegistry _collisionRegistry;
-    private readonly Collider[] _results = new Collider[100];
+    private readonly Collider2D[] _results = new Collider2D[100];
     private IPhysicsResolver _resolver;
 
     public PhysicsService(ICollisionRegistry collisionRegistry, IPhysicsResolver resolver)
@@ -91,7 +92,6 @@ namespace Code.Core.Common.Physics
     public IEnumerable<GameEntity> CircleCast(Vector3 position, float radius, int layerMask) 
     {
       int hitCount = OverlapCircle(position, radius, OverlapHits, layerMask);
-
       DrawDebug(position, radius, 1f, Color.red);
       
       for (int i = 0; i < hitCount; i++)
@@ -149,13 +149,13 @@ namespace Code.Core.Common.Physics
     public int OverlapCircle(Vector3 worldPos, float radius, Collider2D[] hits, int layerMask)
     {
       var contactFilter2D = new ContactFilter2D();
-      contactFilter2D.SetLayerMask(layerMask);
+      contactFilter2D.NoFilter().SetLayerMask(layerMask);
       
       return _resolver.OverlapCircle(worldPos, radius, contactFilter2D, hits);
     }
 
     public Vector3 CalculatePosition
-      (GameEntity entity, Vector3 worldPositionA, Collider collider)
+      (GameEntity entity, Vector3 worldPositionA, Collider2D collider)
     {
       var colliderA = _collisionRegistry.Get(entity);
       if (colliderA == null)
@@ -192,15 +192,15 @@ namespace Code.Core.Common.Physics
       return worldPositionA + (colliderPosition-startColliderPosition);
     }
 
-    public Collider[] FindNonEntityColliders(GameEntity entity, Vector3 position, float radius)
+    public Collider2D[] FindNonEntityColliders(GameEntity entity, Vector3 position, float radius)
     {
       var colliderA = _collisionRegistry.Get(entity);
       if (colliderA == null)
-        return Array.Empty<Collider>();
+        return Array.Empty<Collider2D>();
       
       var size = _resolver.OverlapSphereNonAlloc(position, radius, _results);
 
-      var colliders = new Collider[size];
+      var colliders = new Collider2D[size];
       var count = 0;
       for (var index = 0; index < size; index++)
       {
@@ -215,7 +215,7 @@ namespace Code.Core.Common.Physics
         count++;
       }
       
-      var colliders1 = new Collider[count];
+      var colliders1 = new Collider2D[count];
       for (var index = size-1; index >= 0; index--)
       {
         if(colliders[index] == null)
@@ -253,7 +253,7 @@ namespace Code.Core.Common.Physics
     }
 
     public (bool, Vector3, float) GetPenetration(
-      GameEntity entity, Collider colliderB
+      GameEntity entity, Collider2D colliderB
     )
     {
       var colliderA = _collisionRegistry.Get(entity);
@@ -288,8 +288,8 @@ namespace Code.Core.Common.Physics
     }
 
     public Vector3 WorldPositionA(
-      Vector3 worldPositionA, Quaternion rotationA, Collider colliderA,
-      Vector3 worldPositionB, Quaternion rotationB, Collider colliderB
+      Vector3 worldPositionA, Quaternion rotationA, Collider2D colliderA,
+      Vector3 worldPositionB, Quaternion rotationB, Collider2D colliderB
       )
     {
       var isPenetrating = _resolver.ComputePenetration(
